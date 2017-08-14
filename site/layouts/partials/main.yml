@@ -1,0 +1,222 @@
+
+Head:
+    title: Hate Incidents Reporting Platform
+Components:
+    Header:
+        header: |
+            Hate Incidents
+            Reporting Platform
+        locales:
+            de: deutsch
+            en: english
+    Footer:
+        imprint: imprint
+    Navigation:
+        definition: |
+            What is **Hate Crime,**
+            **Hate Speech** and **Discrimination?**
+        purpose: |
+            What is the **purpose**
+            of this platform?
+        report: |
+            I want to **submit
+            a report**
+    Stats:
+        intro: |
+            **%{incidents}** reported incidents on this platform so far this year.
+        incident:
+            form:
+                label: Forms
+                types:
+                    crime: |
+                        **%{count}** Hate crime
+                    speech: |
+                        **%{count}** Hate speech
+                    discrimination: |
+                        **%{count}** Discrimination
+                    other: |
+                        **%{count}** Other
+            category:
+                label: Categories
+                types:
+                    attack: |
+                        **%{count}** Violent attacks against people
+                    threat: |
+                        **%{count}** Threat against people
+                    damage: |
+                        **%{count}** Attacks targeting property
+            type:
+                label: Types
+                types:
+                    hatred_incitement: |
+                        **%{count}** Incitement to hatred
+                    defamation: |
+                        **%{count}** Defamation of a group
+                    totalitarian_ideology: |
+                        **%{count}** Promotion of totalitarian ideology
+                    genocide_denial: |
+                        **%{count}** Condoning, trivializing or denying of genocide
+                    employment_discrimination: |
+                        **%{count}** Employment discrimination
+                    murder: |
+                        **%{count}** Homicide
+                    physical: |
+                        **%{count}** Physical assault
+                    sexual: |
+                        **%{count}** Sexual assault
+                    abduction: |
+                        **%{count}** Abduction
+                    robbery: |
+                        **%{count}** Robbery
+                    theft: |
+                        **%{count}** Theft
+                    burglary: |
+                        **%{count}** Burglary
+                    arson: |
+                        **%{count}** Arson attack
+                    damage: |
+                        **%{count}** Damage to property
+                    vandalism: |
+                        **%{count}** Vandalism
+                    desecration: |
+                        **%{count}** Desecration
+                    hacking: |
+                        **%{count}** Hacking
+                    bombing: |
+                        **%{count}** Bombing
+            physical:
+                label: Physical Assaults
+                types:
+                    injury: |
+                        **%{count}** Causing serious injury
+                    death: |
+                        **%{count}** Injuries resulting in death
+                    group: |
+                        **%{count}** Carried out by a group
+                    weapon: |
+                        **%{count}** Use of a weapon
+                    simple: |
+                        **%{count}** Simple assault
+        mobile:
+            intro: |
+                **%{incidents}** reported incidents so far this year.
+            incident:
+                form: form
+                category: category
+                type: type
+                physical: physical
+    Form:
+        required: This information is mandatory.
+    DatePicker:
+        today: Today
+Views:
+    Home:
+        title: ''
+        header: ''
+        text: |
+            Lorem Ipsum.
+    Definition:
+        title: Definitions
+        header: ''
+        text: |
+            # Hate Crime
+
+            In order for the collected data to be comparable, this platform uses the OSCE/ODIHR’s definition of hate crime. At the [OSCE Ministerial Council in Athens](http://www.osce.org/node/63629) in 2009, OSCE participating States acknowledged that »hate crimes are criminal offences committed with a bias motive.« Simply put, hate crime must constitute an offence under criminal law and be motivated by bias.
+
+            # There are three broad types of criminal offences:
+
+            - Physical violence
+            - Threats
+            - Damage to property
+
+            # There are several types of bias motivation:
+
+            - Racism and xenophobia
+            - Bias against Roma and Sinti
+            - Anti-Semitism
+            - Bias against Muslims
+            - Bias against Christians and members of other religions
+        definitions:
+            header: Definitions
+            text: Understanding the difference between hate crime, hate speech, and discrimination is key for successful reporting and follow-up.
+    Report:
+        title: Submit a report
+        header: ''
+        text: |
+            ## Welcome to the Hate Incidents Reporting Platform
+
+            “Have you been attacked for your skin colour, religion, sexual orientation or other characteristics? Have you witnessed such an attack on persons or property? Are you a victim or a witness of another act of intolerance? You can report it to **%{ngo}** here. If you are in need of emergency assistance, please dial **112** instead.
+        Form:
+            reporter:
+                type:
+                    label: How do you know about the incident?
+                    nullOption: Please choose
+                    options:
+                        victim: I am a victim
+                        witness: I am a witness
+                        other: Other - Explain in the description
+                email:
+                    label: Add your e-mail address
+                    help: Contact information is for communication purposes only - your information will not be released without your consent.
+                name:
+                    label: Add your full name (optional)
+                lawEnforcement:
+                    label: Do you want the incident to be reported to local police?
+                    help: Please note that should you tick “Yes”, the police may be in touch with you for further information.
+                    nullOption: Please choose
+                    options:
+                        no: No
+                        noAlreadyReported: No, already reported
+                        yes: Yes
+                        yesDontShare: Yes, without sharing my personal information
+            incident:
+                date:
+                    label: When did the incident occur?
+                location:
+                    label: Where did the incident take place?
+                summary:
+                    label: Describe the incident in your own words
+            upload:
+                label: Upload a picture or film, or any other file related to the incident (optional)
+            submit: Submit report
+            success: |
+                ## Thank you
+                You report has been received.
+            failure: |
+                **There was an error submitting your report.**
+    Purpose:
+        title: Purpose
+        header: ''
+        text: |
+            The purpose of this reporting platform is threefold.
+
+            **Firstly,** the platform is designed to support local NGOs in collecting data on hate crime, hate speech and discrimination. Local NGOs use this data for the purpose of advocacy within their respective countries. For example, NGOs will raise the awareness of respective governments of the problems in their countries and lobby for better legislation to counter the phenomena of hate crime, hate speech and discrimination.
+
+            **Secondly,** the platform is designed to help local NGOs provide victim support and to manage hate crime, hate speech and discriminatory incidents. Victims are given the voluntary option to report the specific incident to local police. Local NGOs will support victims throughout this process.
+
+            **Thirdly,** the platform will enable local NGOs to export the hate crime data to the Office for Democratic Institutions and Human Rights (ODIHR) of the Organization for Security and Co-operation in Europe (OSCE). Please note that only the data on hate crime and not the data on hate speech and discrimination will be reported to ODIHR. ODIHR publishes hate crime data on hatecrime.osce.org annually.
+            Thus, by filling in the designated reporting form you are helping to create a better overview of the situation regarding hate crime within your country, and you will be given assistance by local NGOs to follow-up on the specific hate crime, hate speech or discrimination committed against you (note that this is optional).
+    Imprint:
+        title: Imprint
+        header: Imprint
+        text: |
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+
+            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+
+            Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu,
+    Contact:
+        title: Contact
+        header: Contact
+        text: |
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+
+            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+
+            Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu,
+    NotFound:
+        title: Page not found
+        header: Page not found
+        text: |
+            The page you requested is not available.
+            Please use the menu to navigate.

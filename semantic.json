@@ -25,7 +25,9 @@
     "container",
     "icon",
     "segment",
-    "grid"
+    "grid",
+    "form",
+    "accordion"
   ],
   "version": "2.2.11"
 }

@@ -1,61 +1,42 @@
-// JS Goes here - ES6 supported
-
-import $              from 'jquery'
-import TWEEN          from '@tweenjs/tween.js'
-import {scaleLinear}  from 'd3-scale'
-import Detector       from './lib/detector'
-import knack          from './knack'
+import $ from 'jquery'
+import YAML from 'js-yaml'
 global.jQuery = $
 
-document.addEventListener('DOMContentLoaded', event => { 
+console.log('YAML', YAML)
+
+function _yamlToCSV(text) {
+  let wat = YAML.safeLoad(text)
+
+  console.log('wat', wat)
+
+  return "f00"
+}
+
+$(document).ready((event) => { 
   console.log('hellö')
 
-  let inclinationConfig = { min:      0.2, 
-                            default:  0.50,
-                            max:      0.515 }
+  let inε   = CodeMirror.fromTextArea(document.getElementById('code-yaml'), {
+                lineNumbers: true,
+                mode: "text/x-yaml",
+                gutters: ["CodeMirror-lint-markers"],
+                lint: true,
+                electricChars: false,
+                viewportMargin: Infinity }),
 
-  // start the TWEEN engine
-  requestAnimationFrame(animate)
+      outε  = CodeMirror.fromTextArea(document.getElementById('code-csv'), {
+                  lineNumbers: true,
+                  mode: "text/x-yaml",
+                  readOnly: true,
+                  // viewportMargin: Infinity 
+                })
 
-  if( !Detector.webgl ) Detector.addGetWebGLMessage()
-  else {
-    knack('three')
-      .then((updateSky) => {
-        return new Promise((resove, _reject) => {
-          // show the three scene
-          $('#three').css('opacity', 1)
-          let inclination       = { value: inclinationConfig.max },
-              tween             = new TWEEN.Tween(inclination)
-                                  .to({ value: inclinationConfig.default }, 2000)
-                                  .easing(TWEEN.Easing.Exponential.In)
-                                  .onUpdate(() => { updateSky({inclination: inclination.value})})
-                                  .onComplete(() => {resove(updateSky)})
-                                  .start()})})
-      .then((updateSky) => {
-
-        let sunScale = scaleLinear()
-                        .domain([0, window.innerHeight])
-                        .range([inclinationConfig.default, inclinationConfig.min])
-                        .clamp(true),
-            textScale = scaleLinear()
-                        .domain([0, window.innerHeight])
-                        .range([0, 1])
-                        .clamp(true)
-
-        $(window).on('scroll', (e) => {
-          let top = $(window).scrollTop()
-          updateSky({ inclination: sunScale(top),
-                      zText: textScale(top)})
-        })
-        
-        // adjust the sun scale upon window resize
-        $(window).on('resize', () => { sunScale.range([0, window.innerHeight])})
-      })
+  // initialize the accordions      
+  $('.ui.accordion').accordion()
 
 
-    }})
+  $('#convert-button').click(() => {
+    let yaml = inε.getValue(),
+        csv  = _yamlToCSV(yaml)
+  })
 
-// Setup the animation loop for the TWEEN engine.
-function animate(time) {
-    requestAnimationFrame(animate)
-    TWEEN.update(time) }
+  })
