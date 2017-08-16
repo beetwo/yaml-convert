@@ -29,6 +29,16 @@ function _unravel(json, name) {
   }, [])
 }
 
+function _banner() {
+  console.log(" ____       ____         ____                                           ______")
+  console.log("|    ~.    |            |            `````|````` `.               .'  .~      ~.")
+  console.log("|____.'_   |______      |______           |        `.           .'   |          |")
+  console.log("|       ~. |            |                 |          `.   .   .'     |          |")
+  console.log("|_______.' |___________ |___________      |            `.' `.'        `.______.'")
+
+  console.log("—where digital innovation creates social imapct.")
+}
+
 function _yamlToCSV(text) {
   let json        = YAML.safeLoad(text),
       unravelled  = _unravel(json),
@@ -123,6 +133,8 @@ function _dropzone() {
 }
 
 $(document).ready((event) => { 
+
+  _banner()
   _dropzone()
 
   // init the sementic ui widgets
