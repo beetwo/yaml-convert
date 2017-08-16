@@ -1,7 +1,8 @@
 
-@import "src/variables";
-@import "lib/mixins/fontface";
-@import "src/fonts";
+@import "fonts";
+@import "variables";
+@import "lib/mixins/btn";
+@import "lib/dropzone";
 
 @import "./overrides";
 
@@ -15,10 +16,9 @@ body {
   padding: 0;
   background: @background-color;
   color: @text-color;
+  overflow-x: scroll;
 
-  & > .grid {
-      height: 100%;
-    }
+  font-face: 'Source-Sans';
 }
 
 #logo {
@@ -30,14 +30,95 @@ body {
   margin-top: 3rem;
 }
 
-.CodeMirror {
-  border: 1px solid #eee;
-  height: auto;
+#incoming {
+  margin-top: 3rem;
+  .container {
+    position: relative;
+  }
 }
 
+#result {
+  display: none;
+  .info {
+    display: flex;
 
-.column {
-  max-width: 450px;
+    .header {
+      margin-left: 2rem;
+      margin-top: 0.5rem;
+      margin-right: 2rem;
+    }
+  }
+}
+
+#dropzone-template {
+  display: none;
+}
+
+#seperator {
+  margin-top: 1.5rem;
+  color: @blue !important;
+
+  .ui.accordion .title:not(.ui) {
+    color: @blue;
+  }
+}
+
+#error-container.red.error.message {
+  position: absolute;
+  z-index: 1000;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  top: 1.5rem;
+
+  display: none;
+}
+
+#csv-copy-wrapper{
+  overflow: hidden;
+  height: 3rem;
+  position: fixed;
+  bottom: 0;
+  left: -100%;
+}
+
+.ui.copy.message {
+  margin-left: -2rem;
+  display: none;
+}
+
+textarea#csv {
+  display: none;
+  margin: 1.5rem;
+  padding: 1rem;
+  background: @black;
+  color: @blue;
+}
+
+pre.code {
+  background: @black;
+  color: @blue;
+  padding: 2rem;  
+}
+
+footer{
+  position: absolute;
+  bottom: 0;
+  background: @blue;
+  padding: 1.5rem;
+  margin-left: 1rem;
+  font-size: 4rem;
+
+  a {
+    color: @white;
+    font-size: 1.2rem;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+    &:hover, &:active {
+      text-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      color: @white;
+    }
+  }
 }
 
 button,

@@ -1,0 +1,108 @@
+// Buttons - THETA
+// --------------------------------------------------------------------
+
+// settings
+@font-size:                       16px;
+@font-family:                     'Source-Sans', 'System Font';
+@font-family-heading:             @font-family;
+@line-height:                     1.42;
+
+@theta-v-spacing:     0.7em;
+@theta-h-spacing:     1.4em;
+@theta-border-radius: 0;
+@theta-border-width:  3px;
+
+.v-padding(@padding-top, @padding-bottom: @padding-top) {
+  padding-top: @padding-top;
+  padding-bottom: @padding-bottom;
+}
+
+.h-padding(@padding-left, @padding-right: @padding-left) {
+  padding-left: @padding-left;
+  padding-right: @padding-right;
+}
+
+.btn-common(@v-spacing, @h-spacing: @v-spacing, @border-radius: 0, @border-width: 0) {
+  display: inline-block;
+  margin: 6px;
+  font-size: inherit;
+  line-height: @line-height;
+  padding: @v-spacing @h-spacing;
+  font-weight: normal;
+  border-width: @border-width;
+  border-style: solid;
+  background: transparent;
+  border-radius: @border-radius;
+  cursor: pointer;
+  font-family: @font-family;
+  user-select: none;
+  vertical-align: bottom;
+
+  &.btn-disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+    
+    &:active {
+      opacity: 0.6;
+    }
+  }
+}
+
+
+// Mixin
+.btn-theta(@color, @text-color: @color) {
+  color: @text-color;
+  border-color: @color;
+  &:hover {
+    transform: translate(0.2em, -0.1em);
+
+    &:before {
+      transform: translate(-0.4em, 0.4em);
+    }
+  }
+
+  &:active {
+    transform: translate(0, 0);
+    transition-duration: 0.1s;
+    
+    &:before {
+    transition-duration: 0.1s;
+      transform: translate(0, 0);
+      // background-color: rgba(adjust-hue(@color, 60%), 0.5);
+      background-color: @color;
+    }
+  }
+  &:before {
+    // background-color: rgba(adjust-hue(@color, 60%), 0.4);
+    background-color: @color;
+  }
+}
+
+.btn {
+  .btn-common(@theta-v-spacing, @theta-h-spacing, @theta-border-radius, @theta-border-width);
+  .btn-theta(@blue, @white);
+  position: relative;
+  transform: translate(0.5em -0.4em);
+  transition: transform 0.2s;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    transform: translate(0.6em, -0.3em);
+    transition: transform 0.2s, background-color 0.2s;
+  }
+}
+
+// .btn-secondary { @include btn-theta($color-secondary); }
+// .btn-tertiary { @include btn-theta($color-tertiary); }
+// .btn-tetrary { @include btn-theta($color-tetrary); }
+// .btn-black { @include btn-theta($gray-darker); }
+// .btn-dark { @include btn-theta($gray-dark); }
+// .btn-gray { @include btn-theta($gray); }
+// .btn-light { @include btn-theta($gray-lighter, $gray-dark); }

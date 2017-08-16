@@ -19,15 +19,17 @@
   "autoInstall": true,
   "rtl": false,
   "components": [
-    "reset",
-    "site",
-    "button",
+    "accordion",
     "container",
-    "icon",
-    "segment",
-    "grid",
+    "dropdown",
     "form",
-    "accordion"
+    "grid",
+    "icon",
+    "message",
+    "reset",
+    "segment",
+    "site",
+    "transition"
   ],
   "version": "2.2.11"
 }

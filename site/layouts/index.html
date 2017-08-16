@@ -1,49 +1,110 @@
 {{ partial "header" . }}
 
-<div class="ui vertical masthead center aligned segment">
+<div class="masthead">
   <div class="ui text container">
-    <img id="logo" src="/images/logo.svg" class="image">
+    <a href="/">
+      <img id="logo" src="/images/logo.svg" class="image">
+    </a>
   </div>
 </div>
 
-<!-- <div class="ui vertical stripe segment">
-  <div class="ui middle aligned container">
-    <div class="ui accordion">
-      <div class="title">
-        <i class="dropdown icon"></i>
-        main.yml
+
+<div id="incoming"  class="">
+  <div class="ui center aligned text container">
+
+
+    <div id='error-container' class="ui red error message">
+      <i class="cancel icon"></i>
+      <span id='error-msg'></span>
       </div>
-      <div class="content">
-        <pre id="example-yaml" class="code">
-          {{ partial "main.yml" . }}
-        </pre>
+    <div id="dropzone">
+      <form action="/upload" class="dropzone needsclick dz-clickable" id="fake-upload">
+       <div class="dz-message needsclick">
+         Drop a YAML file to convert it to CSV<br>
+       </div>
+     </form>
+    </div>
+  </div>
+<!-- 
+  <div id="seperator" class="ui text container">
+    <div class="ui accordion">
+      <div class=" title">
+        <i class="dropdown icon"></i>
+        Change seperator
+      </div>
+      <div class=" content">
+        <div class="ui selection dropdown">
+          <input type="hidden" name="seperator" value="0">
+          <i class="dropdown icon"></i>
+          <div class="default text">Seperator</div>
+          <div class="menu">
+            <div class="item" data-value="0">,</div>
+            <div class="item" data-value="1">;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>-->
+ 
+</div>
+
+<div  id="result" class="ui vertical stripe segment">
+  <div class="ui container stackable grid">
+    <div class="row">
+      <div class="tweleve wide column">
+        <h1>Your file is ready</h1>  
+      </div> 
+    </div> 
+    <div class="row">
+      <div class="four wide column">
+        <button class="btn visibility">
+        <i class="unhide icon"></i>
+          show me
+        </button>
+      </div>
+      <div class="four wide column">
+        <button class="btn download">
+        <i class="download icon"></i>
+          download
+        </button>
+      </div>
+      <div class="five wide column">
+        <button id="copy" class="btn" data-clipboard-target="#csv-copy">
+          <i class="copy icon"></i>
+          copy to clipboard
+        </button>
+      </div>
+      <div class="three wide column">
+        <div class="ui green copy message">
+          <i class="check icon"></i>
+          Copied
+        </div>
       </div>
     </div>
   </div>
-</div> -->
 
-<div class="ui vertical stripe segment">
+
+  
   <div class="ui fluid container">
-    <textarea id="code-yaml">
-      {{ partial "main.yml" . }}
-    </textarea>
+    <textarea id="csv" class="code"></textarea>
   </div>
-  <div class="ui text container">
-    <button id="convert-button" class="ui fluid icon button">
-      <i class="refresh icon"></i>
-      convert
-    </button>
+
+  <div id="csv-copy-wrapper">
+    <textarea id="csv-copy"></textarea>
   </div>
+  
 </div>
 
-<div class="ui vertical stripe segment">
+
+<footer>
   <div class="ui text container">
-    <h2>result</h2>
+    <a href="https://beetwo.at" target="_blank">BeeTwo —where digital innovation meets social impact</a>
   </div>
-  <div class="ui fluid container">
-    <textarea id="code-csv">
-    </textarea>
-  </div>
+</footer>
+
+
+<div id="dropzone-template">
+  <i class="undo icon"></i>
 </div>
 
 
